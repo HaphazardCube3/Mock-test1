@@ -9,5 +9,6 @@ package com.mycompany.prjgui8;
  * @author tswan
  */
 public interface IMealOrder {
-    
+    double calculateTotal(int numMeals, double price);
+    boolean validateData(String meal, int NumMeals, double price);
 }

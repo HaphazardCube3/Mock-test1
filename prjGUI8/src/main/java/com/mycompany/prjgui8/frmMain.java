@@ -17,6 +17,7 @@ public class frmMain extends javax.swing.JFrame {
      */
     public frmMain() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -68,6 +69,7 @@ public class frmMain extends javax.swing.JFrame {
         mnuEdit.setText("Edit");
 
         mniProcess.setText("Process");
+        mniProcess.addActionListener(this::mniProcessActionPerformed);
         mnuEdit.add(mniProcess);
 
         mniClear.setText("Clear");
@@ -138,6 +140,23 @@ public class frmMain extends javax.swing.JFrame {
         
         System.exit(0);
     }//GEN-LAST:event_mniExitActionPerformed
+
+    private void mniProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniProcessActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+            
+        String display;
+        
+        int numMeals = Integer.parseInt(txtNumMeals.getText());
+        double price = Double.parseDouble(txtPrice.getText());
+        String meal = cmbMeal.getSelectedItem().toString();
+        
+        MealOrder mo = new MealOrder(numMeals, price, meal);
+        }
+        
+        
+    }//GEN-LAST:event_mniProcessActionPerformed
 
     /**
      * @param args the command line arguments

@@ -137,7 +137,9 @@ public class frmMain extends javax.swing.JFrame {
             
             if (weight <= 0){
                 JOptionPane.showMessageDialog(null, "Weight must be positive","Heading as input error", JOptionPane.WARNING_MESSAGE);
-            }
+                btnClearActionPerformed(evt);
+                return;
+            } 
             
             ShippingCalculator sc = new ShippingCalculator(weight, type);
             txaSummary.setText(sc.summary());

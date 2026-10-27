@@ -3,4 +3,9 @@ Meal :Pizza
 Number of Meals: 4
 Price per Meal: 56.0
 VAT: 33.6
+Total Price: 257.6Restaurant Meal Order Report
+Meal :Borgar
+Number of Meals: 4
+Price per Meal: 56.0
+VAT: 33.6
 Total Price: 257.6

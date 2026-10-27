@@ -4,6 +4,12 @@
  */
 package com.mycompany.prjgui8;
 
+import java.awt.HeadlessException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tswan
@@ -148,12 +154,38 @@ public class frmMain extends javax.swing.JFrame {
             
         String display;
         
-        int numMeals = Integer.parseInt(txtNumMeals.getText());
-        double price = Double.parseDouble(txtPrice.getText());
+        int numMeals = Integer.parseInt(txtNumMeals.getText().trim());
+        double price = Double.parseDouble(txtPrice.getText().trim());
         String meal = cmbMeal.getSelectedItem().toString();
         
         MealOrder mo = new MealOrder(numMeals, price, meal);
+        
+        if (mo.validateData(meal, numMeals, price)){
+            JOptionPane.showMessageDialog(null, "Invalid Input","Error",JOptionPane.ERROR_MESSAGE);
+            return;
         }
+        
+        double total = mo.calculateTotal(numMeals, price);
+        double vat = mo.calcVAT();
+        
+        String report = "Restaurant Meal Order Report\nMeal :" + mo.getMeal() + "\nNumber of Meals: " + mo.getNumMeals() + "\nPrice per Meal: " + mo.getPrice() +"\nVAT: " + vat + "\nTotal Price: " + total;
+        txaDisplay.setText(report);
+        
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("orderReport.txt",true))){
+            
+            bw.write(report);
+            bw.close();
+        }
+        
+        JOptionPane.showMessageDialog(null, "Order Processed and saed succesfully.");
+        
+        }
+        
+        catch (HeadlessException | IOException | NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "An error haas occured: " + ex.toString());
+        }
+        
+        
         
         
     }//GEN-LAST:event_mniProcessActionPerformed

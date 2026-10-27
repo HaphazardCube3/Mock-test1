@@ -42,5 +42,21 @@ public class TestMealOrder {
        
    }
     
-    
+   @Test
+   public void testValidateDataNegativePrice(){
+       
+       MealOrder mo = new MealOrder(2, -75, "Burger");
+       boolean actual = mo.validateData("Burger", 2, -75);
+       assertFalse(actual,"Expect validation to fail for negative price");
+       
+   } 
+   
+   @Test
+   public void testValidateDataZeroMealCount(){
+       
+       MealOrder mo = new MealOrder(0, 75, "Burger");
+       boolean actual = mo.validateData("Burger", 0, 75);
+       assertFalse(actual,"Expect validation to fail for 0 count");
+       
+   } 
 }

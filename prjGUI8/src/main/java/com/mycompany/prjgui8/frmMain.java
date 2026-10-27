@@ -160,7 +160,7 @@ public class frmMain extends javax.swing.JFrame {
         
         MealOrder mo = new MealOrder(numMeals, price, meal);
         
-        if (mo.validateData(meal, numMeals, price)){
+        if (!mo.validateData(meal, numMeals, price)){
             JOptionPane.showMessageDialog(null, "Invalid Input","Error",JOptionPane.ERROR_MESSAGE);
             return;
         }

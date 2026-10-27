@@ -41,7 +41,7 @@ public class MealOrder implements IMealOrder{
             return false;
         }
         
-        return (numMeals < 0);
+        return numMeals > 0;
         
     }
     

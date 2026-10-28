@@ -18,6 +18,8 @@ This repository contains the screenshots and work for the 2025 mock test.
 
 <br>
 
+## Question 1 Rubrics
+
 <div>
 <img width="665" height="320" alt="Screenshot 2026-10-28 130837" src="https://github.com/user-attachments/assets/d9919871-8e08-43cd-b37f-5af7de53805e" />
 </div>
